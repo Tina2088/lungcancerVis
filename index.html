@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>肺癌患病风险数据分析报告</title>
+    <style>
+        :root {
+            --primary-color: #007AFF;
+            --secondary-color: #FF2D55;
+            --background-color: #F2F2F7;
+            --card-background: #FFFFFF;
+            --text-color: #000000;
+            --muted-text: #8E8E93;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            background-color: var(--card-background);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--background-color);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: var(--secondary-color);
+        }
+
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .chart-card {
+            background-color: var(--background-color);
+            border-radius: 12px;
+            padding: 1rem;
+            flex: 1 1 400px;
+            min-width: 300px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .chart-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .chart-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .key-findings {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .finding-card {
+            background-color: var(--background-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .conclusion {
+            background: linear-gradient(135deg, var(--background-color), var(--card-background));
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .conclusion h2 {
+            color: var(--secondary-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            color: var(--muted-text);
+            border-top: 1px solid var(--background-color);
+        }
+
+        @media (max-width: 768px) {
+            .chart-card {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>肺癌患病风险数据分析报告</h1>
+            <p>基于医疗数据的深度分析与可视化呈现</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>📊 数据概览</h2>
+            <p>本分析基于包含510个样本的数据集，涵盖了年龄、性别、生活习惯和健康状况等多个维度的信息。数据集包含16列特征，其中最后一列LUNG_CANCER为标签列。</p>
+            <p>主要特征分为以下三类：</p>
+            <ul>
+                <li>基本身份信息：性别、年龄</li>
+                <li>生活习惯：吸烟、手指发黄、饮酒</li>
+                <li>健康状况：焦虑、同伴压力、慢性病、疲劳、过敏、喘息、咳嗽、呼吸急促、吞咽困难、胸痛</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🔍 关键发现</h2>
+            <div class="key-findings">
+                <div class="finding-card">
+                    <h3>🚬 吸烟与肺癌</h3>
+                    <p>吸烟者中肺癌患者比例显著高于不吸烟者（74.3% vs 33.3%）</p>
+                </div>
+                <div class="finding-card">
+                    <h3>👵 年龄因素</h3>
+                    <p>60-70岁年龄段肺癌患者比例最高（65.3%），且随着年龄增长风险持续上升</p>
+                </div>
+                <div class="finding-card">
+                    <h3>🧬 关键症状</h3>
+                    <p>咳嗽（相关系数0.5）和呼吸急促（相关系数0.45）与肺癌高度相关</p>
+                </div>
+                <div class="finding-card">
+                    <h3>🚹 性别差异</h3>
+                    <p>男性患者比例（57.6%）高于女性（44.4%），这可能与生活习惯有关</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>📈 数据可视化</h2>
+            <div class="chart-container">
+                <div class="chart-card">
+                    <h3>年龄分布与肺癌患病情况</h3>
+                    <img src="age_distribution.png" alt="年龄分布与肺癌患病情况">
+                </div>
+                <div class="chart-card">
+                    <h3>年龄与肺癌患病风险趋势图</h3>
+                    <img src="age_lung_cancer_trend.png" alt="年龄与肺癌患病风险趋势图">
+                </div>
+                <div class="chart-card">
+                    <h3>性别比例分布</h3>
+                    <img src="gender_distribution.png" alt="性别比例分布">
+                </div>
+                <div class="chart-card">
+                    <h3>吸烟与肺癌患病关系</h3>
+                    <img src="smoking_lung_cancer.png" alt="吸烟与肺癌患病关系">
+                </div>
+                <div class="chart-card">
+                    <h3>症状与肺癌相关性</h3>
+                    <img src="symptom_correlation.png" alt="症状与肺癌相关性柱状图">
+                </div>
+            </div>
+        </section>
+
+        <section class="conclusion">
+            <h2>📌 结论与建议</h2>
+            <p><strong>主要结论：</strong></p>
+            <ol>
+                <li>吸烟是肺癌患病的最重要风险因素，相关系数达到0.55</li>
+                <li>年龄是另一个重要风险因素，随着年龄增长，肺癌风险显著增加</li>
+                <li>特定症状与肺癌高度相关，特别是咳嗽和呼吸急促</li>
+                <li>男性患者比例较高，这可能与生活习惯有关</li>
+            </ol>
+            
+            <p><strong>预防建议：</strong></p>
+            <ul>
+                <li><strong>戒烟：</strong>鉴于吸烟与肺癌的高度相关性，戒烟是预防肺癌最有效的方法</li>
+                <li><strong>定期体检：</strong>40岁以上人群应定期进行肺部检查，尤其是有吸烟史的人群</li>
+                <li><strong>关注症状：</strong>注意咳嗽、呼吸急促等症状，及时就医检查</li>
+                <li><strong>健康生活方式：</strong>保持健康饮食、适度运动，增强身体免疫力</li>
+                <li><strong>减少酒精摄入：</strong>数据显示酒精摄入与肺癌有一定相关性</li>
+            </ul>
+            
+            <p><strong>进一步研究建议：</strong></p>
+            <ul>
+                <li>进行长期追踪研究，了解肺癌风险因素的动态变化</li>
+                <li>收集更多环境因素数据，如空气污染暴露等</li>
+                <li>研究遗传因素在肺癌发病中的作用</li>
+                <li>开发更精确的肺癌风险预测模型</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2023 数据分析报告 · 保留所有权利</p>
+        <p>本报告由数据可视化分析系统自动生成</p>
+    </footer>
+</body>
+</html>

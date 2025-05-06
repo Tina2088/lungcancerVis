@@ -1,0 +1,21 @@
+{
+  "correlations": {
+    "LUNG_CANCER": {
+      "GENDER": 0.05,
+      "AGE": 0.35,
+      "SMOKING": 0.55,
+      "YELLOW_FINGERS": 0.45,
+      "ANXIETY": 0.25,
+      "PEER_PRESSURE": 0.15,
+      "CHRONIC DISEASE": 0.3,
+      "FATIGUE": 0.2,
+      "ALLERGY": 0.1,
+      "WHEEZING": 0.4,
+      "ALCOHOL CONSUMING": 0.25,
+      "COUGHING": 0.5,
+      "SHORTNESS OF BREATH": 0.45,
+      "SWALLOWING DIFFICULTY": 0.35,
+      "CHEST PAIN": 0.3
+    }
+  }
+}
